@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="410" viewBox="0 0 920 410" font-family="Microsoft YaHei, Segoe UI, sans-serif">
+  <rect width="920" height="410" fill="#ffffff"/>
+
+  <text x="460" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#1e293b">KD-Tree：切几刀，把"要搜的点"变成"一小块"</text>
+
+  <!-- ===== 左：二维切分 ===== -->
+  <rect x="80" y="90" width="400" height="240" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- 第 1 刀：竖 -->
+  <line x1="280" y1="90" x2="280" y2="330" stroke="#dc2626" stroke-width="2.5"/>
+  <!-- 第 2 刀：左半横 -->
+  <line x1="80" y1="210" x2="280" y2="210" stroke="#2563eb" stroke-width="2.5"/>
+  <!-- 第 2 刀：右半横 -->
+  <line x1="280" y1="170" x2="480" y2="170" stroke="#2563eb" stroke-width="2.5"/>
+  <!-- 第 3 刀 -->
+  <line x1="180" y1="210" x2="180" y2="330" stroke="#16a34a" stroke-width="2"/>
+  <line x1="370" y1="90" x2="370" y2="170" stroke="#16a34a" stroke-width="2"/>
+
+  <!-- 散点 -->
+  <g fill="#64748b">
+    <circle cx="120" cy="120" r="4"/><circle cx="160" cy="145" r="4"/><circle cx="215" cy="115" r="4"/>
+    <circle cx="130" cy="180" r="4"/><circle cx="240" cy="165" r="4"/>
+    <circle cx="110" cy="240" r="4"/><circle cx="150" cy="290" r="4"/><circle cx="230" cy="265" r="4"/>
+    <circle cx="205" cy="305" r="4"/>
+    <circle cx="310" cy="110" r="4"/><circle cx="350" cy="140" r="4"/><circle cx="450" cy="125" r="4"/>
+    <circle cx="415" cy="105" r="4"/>
+    <circle cx="320" cy="200" r="4"/><circle cx="400" cy="230" r="4"/><circle cx="450" cy="290" r="4"/>
+    <circle cx="330" cy="300" r="4"/><circle cx="380" cy="260" r="4"/><circle cx="440" cy="215" r="4"/>
+  </g>
+
+  <!-- 查询点 + 半径 -->
+  <circle cx="350" cy="140" r="58" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4"/>
+  <circle cx="350" cy="140" r="7" fill="#f59e0b" stroke="#b45309" stroke-width="1.5"/>
+  <text x="200" y="60" font-size="13" font-weight="600" fill="#b45309">查询点：只在这一小块里找邻居</text>
+  <line x1="290" y1="68" x2="340" y2="128" stroke="#b45309" stroke-width="1.2"/>
+
+  <!-- 切分标注 -->
+  <text x="288" y="108" font-size="12" font-weight="600" fill="#dc2626">第 1 刀</text>
+  <text x="120" y="203" font-size="12" font-weight="600" fill="#2563eb">第 2 刀</text>
+  <text x="386" y="163" font-size="12" font-weight="600" fill="#2563eb">第 2 刀</text>
+  <text x="188" y="325" font-size="11" font-weight="600" fill="#16a34a">第 3 刀</text>
+
+  <text x="280" y="360" text-anchor="middle" font-size="13" fill="#64748b">先竖切一刀 → 两边再各横切一刀 → 再各切…… 越切越细</text>
+
+  <!-- ===== 右：说明 ===== -->
+  <rect x="560" y="90" width="320" height="240" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <text x="720" y="124" text-anchor="middle" font-size="15" font-weight="700" fill="#1e293b">为什么要切？</text>
+
+  <text x="585" y="160" font-size="13.5" fill="#334155">暴力找邻居：</text>
+  <text x="585" y="182" font-size="13.5" fill="#dc2626">把 30251 个点全算一遍距离</text>
+
+  <text x="585" y="218" font-size="13.5" fill="#334155">KD-Tree 找邻居：</text>
+  <text x="585" y="240" font-size="13.5" fill="#16a34a">先判断"哪一半还用不用搜"</text>
+  <text x="585" y="262" font-size="13.5" fill="#16a34a">不用搜的那半，直接整块扔掉</text>
+
+  <text x="720" y="298" text-anchor="middle" font-size="13" fill="#64748b">所以它只是"找得更快的索引"</text>
+  <text x="720" y="318" text-anchor="middle" font-size="13" font-weight="600" fill="#b91c1c">它一个点都不会删</text>
+</svg>

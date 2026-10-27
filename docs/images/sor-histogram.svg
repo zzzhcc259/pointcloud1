@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" font-family="Microsoft YaHei, Segoe UI, sans-serif">
+  <rect width="920" height="420" fill="#ffffff"/>
+
+  <text x="460" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1e293b">统计滤波（SOR）：按"它离邻居多远"来筛点</text>
+
+  <!-- 坐标轴 -->
+  <line x1="100" y1="320" x2="840" y2="320" stroke="#94a3b8" stroke-width="2"/>
+  <polygon points="850,320 838,314 838,326" fill="#94a3b8"/>
+  <text x="820" y="348" font-size="13" fill="#64748b">到 20 个邻居的平均距离 (mm)</text>
+
+  <!-- 刻度 -->
+  <g stroke="#cbd5e1" stroke-width="1.5">
+    <line x1="150" y1="320" x2="150" y2="328"/>
+    <line x1="250" y1="320" x2="250" y2="328"/>
+    <line x1="350" y1="320" x2="350" y2="328"/>
+    <line x1="450" y1="320" x2="450" y2="328"/>
+    <line x1="650" y1="320" x2="650" y2="328"/>
+    <line x1="750" y1="320" x2="750" y2="328"/>
+  </g>
+  <text x="150" y="346" text-anchor="middle" font-size="12" fill="#94a3b8">0.5</text>
+  <text x="250" y="346" text-anchor="middle" font-size="12" fill="#94a3b8">1.5</text>
+  <text x="450" y="346" text-anchor="middle" font-size="12" fill="#94a3b8">3.5</text>
+  <text x="650" y="346" text-anchor="middle" font-size="12" fill="#94a3b8">7.5</text>
+  <text x="750" y="346" text-anchor="middle" font-size="12" fill="#94a3b8">9.5</text>
+
+  <!-- 正常点的分布（钟形） -->
+  <g fill="#3b82f6">
+    <rect x="158" y="270" width="30" height="50" rx="2"/>
+    <rect x="196" y="200" width="30" height="120" rx="2"/>
+    <rect x="234" y="130" width="30" height="190" rx="2"/>
+    <rect x="272" y="105" width="30" height="215" rx="2"/>
+    <rect x="310" y="145" width="30" height="175" rx="2"/>
+    <rect x="348" y="215" width="30" height="105" rx="2"/>
+    <rect x="386" y="268" width="30" height="52" rx="2"/>
+  </g>
+  <text x="290" y="90" text-anchor="middle" font-size="13" font-weight="600" fill="#1d4ed8">绝大多数点：1 ~ 3 mm</text>
+
+  <!-- 飞点（右边很矮的一撮） -->
+  <g fill="#94a3b8">
+    <rect x="700" y="300" width="26" height="20" rx="2"/>
+    <rect x="738" y="294" width="26" height="26" rx="2"/>
+    <rect x="776" y="302" width="26" height="18" rx="2"/>
+  </g>
+  <text x="752" y="282" text-anchor="middle" font-size="13" font-weight="600" fill="#64748b">离群点：12 ~ 18 mm</text>
+
+  <!-- 阈值线 -->
+  <line x1="600" y1="70" x2="600" y2="320" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="8 5"/>
+  <text x="608" y="86" font-size="13" font-weight="700" fill="#dc2626">阈值 = 平均值 + 1×标准差</text>
+  <text x="608" y="106" font-size="12" fill="#dc2626">实测约 6.6 mm</text>
+
+  <!-- 左侧保留 / 右侧删除 -->
+  <text x="300" y="386" text-anchor="middle" font-size="14" font-weight="700" fill="#16a34a">左边：留着</text>
+  <text x="720" y="386" text-anchor="middle" font-size="14" font-weight="700" fill="#dc2626">右边：删掉</text>
+
+  <line x1="100" y1="366" x2="590" y2="366" stroke="#16a34a" stroke-width="2"/>
+  <line x1="610" y1="366" x2="840" y2="366" stroke="#dc2626" stroke-width="2"/>
+
+  <text x="460" y="412" text-anchor="middle" font-size="13" fill="#64748b">把这个距离算一遍、排个序、卡一条线 —— 就是这么朴素的方法，本项目删掉了 196 个飞点</text>
+</svg>

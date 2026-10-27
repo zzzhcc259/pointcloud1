@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="430" viewBox="0 0 920 430" font-family="Microsoft YaHei, PingFang SC, Segoe UI, sans-serif">
+  <rect width="920" height="430" fill="#ffffff"/>
+
+  <text x="460" y="34" text-anchor="middle" font-size="21" font-weight="700" fill="#1e293b">体素降采样：把空间切成方块，每块只留一个代表</text>
+
+  <!-- ================= 左：降采样前 ================= -->
+  <text x="240" y="68" text-anchor="middle" font-size="16" font-weight="600" fill="#475569">① 降采样前：每个格子里有 3 个点</text>
+
+  <!-- 网格 -->
+  <g stroke="#cbd5e1" stroke-width="1.5" fill="none">
+    <rect x="120" y="100" width="240" height="140"/>
+    <line x1="200" y1="100" x2="200" y2="240"/>
+    <line x1="280" y1="100" x2="280" y2="240"/>
+    <line x1="120" y1="170" x2="360" y2="170"/>
+  </g>
+
+  <!-- 每格的原始点（蓝） -->
+  <g fill="#3b82f6">
+    <circle cx="135" cy="120" r="3.5"/><circle cx="160" cy="140" r="3.5"/><circle cx="175" cy="115" r="3.5"/>
+    <circle cx="215" cy="125" r="3.5"/><circle cx="240" cy="110" r="3.5"/><circle cx="255" cy="150" r="3.5"/>
+    <circle cx="300" cy="115" r="3.5"/><circle cx="325" cy="145" r="3.5"/><circle cx="340" cy="125" r="3.5"/>
+    <circle cx="140" cy="195" r="3.5"/><circle cx="165" cy="215" r="3.5"/><circle cx="180" cy="190" r="3.5"/>
+    <circle cx="220" cy="200" r="3.5"/><circle cx="245" cy="220" r="3.5"/><circle cx="260" cy="195" r="3.5"/>
+    <circle cx="305" cy="195" r="3.5"/><circle cx="330" cy="215" r="3.5"/><circle cx="345" cy="190" r="3.5"/>
+  </g>
+
+  <!-- 每格的质心（红） -->
+  <g fill="#dc2626">
+    <circle cx="157" cy="125" r="5.5"/><circle cx="237" cy="128" r="5.5"/><circle cx="322" cy="128" r="5.5"/>
+    <circle cx="162" cy="200" r="5.5"/><circle cx="242" cy="205" r="5.5"/><circle cx="327" cy="200" r="5.5"/>
+  </g>
+
+  <!-- 图例 -->
+  <circle cx="130" cy="278" r="3.5" fill="#3b82f6"/>
+  <text x="142" y="283" font-size="13" fill="#475569">原始点（18 个）</text>
+  <circle cx="275" cy="278" r="5.5" fill="#dc2626"/>
+  <text x="288" y="283" font-size="13" fill="#475569">格子质心（6 个）</text>
+
+  <!-- 箭头 -->
+  <line x1="390" y1="170" x2="450" y2="170" stroke="#94a3b8" stroke-width="3"/>
+  <polygon points="450,170 438,163 438,177" fill="#94a3b8"/>
+  <text x="420" y="158" text-anchor="middle" font-size="13" fill="#94a3b8">只留质心</text>
+
+  <!-- ================= 右：降采样后 ================= -->
+  <text x="660" y="68" text-anchor="middle" font-size="16" font-weight="600" fill="#475569">② 降采样后：每格只剩 1 个点</text>
+
+  <!-- 网格（虚线，表示格子还在） -->
+  <g stroke="#e2e8f0" stroke-width="1.5" fill="none" stroke-dasharray="5 4">
+    <rect x="530" y="100" width="240" height="140"/>
+    <line x1="610" y1="100" x2="610" y2="240"/>
+    <line x1="690" y1="100" x2="690" y2="240"/>
+    <line x1="530" y1="170" x2="770" y2="170"/>
+  </g>
+
+  <!-- 只剩质心 -->
+  <g fill="#dc2626">
+    <circle cx="567" cy="125" r="5.5"/><circle cx="647" cy="128" r="5.5"/><circle cx="732" cy="128" r="5.5"/>
+    <circle cx="572" cy="200" r="5.5"/><circle cx="652" cy="205" r="5.5"/><circle cx="737" cy="200" r="5.5"/>
+  </g>
+
+  <text x="650" y="278" text-anchor="middle" font-size="13" fill="#475569">点数少了一半多，但形状还在</text>
+
+  <!-- 底部真实数字 -->
+  <line x1="40" y1="310" x2="880" y2="310" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <text x="460" y="340" text-anchor="middle" font-size="15" fill="#1e293b">本项目的真实数据（默认场景，体素边长 2.0 mm）</text>
+  <text x="460" y="372" text-anchor="middle" font-size="17">
+    <tspan font-weight="700" fill="#3b82f6">30251 个点</tspan>
+    <tspan fill="#64748b">  →  </tspan>
+    <tspan font-weight="700" fill="#dc2626">17847 个点</tspan>
+  </text>
+  <text x="460" y="400" text-anchor="middle" font-size="13" fill="#64748b">保留 59.0% ｜ 平均每个体素里原本有 1.695 个点（所以没法压得更狠）</text>
+</svg>

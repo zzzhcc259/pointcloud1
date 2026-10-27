@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="330" viewBox="0 0 920 330" font-family="Microsoft YaHei, Segoe UI, sans-serif">
+  <rect width="920" height="330" fill="#ffffff"/>
+
+  <text x="460" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1e293b">PassThrough 坐标裁剪：拿一把"闸门"，只留区间里的点</text>
+
+  <!-- 轴 -->
+  <line x1="90" y1="170" x2="850" y2="170" stroke="#94a3b8" stroke-width="2"/>
+  <polygon points="860,170 848,164 848,176" fill="#94a3b8"/>
+  <text x="838" y="200" font-size="13" font-weight="600" fill="#64748b">Z 轴 (mm)</text>
+
+  <!-- 区间背景 -->
+  <rect x="347" y="112" width="246" height="116" fill="#dcfce7" stroke="#16a34a" stroke-width="2" rx="4"/>
+
+  <!-- 闸门边界 -->
+  <line x1="347" y1="96" x2="347" y2="240" stroke="#16a34a" stroke-width="3"/>
+  <line x1="593" y1="96" x2="593" y2="240" stroke="#16a34a" stroke-width="3"/>
+
+  <text x="347" y="82" text-anchor="middle" font-size="14" font-weight="700" fill="#15803d">min = -20</text>
+  <text x="593" y="82" text-anchor="middle" font-size="14" font-weight="700" fill="#15803d">max = +20</text>
+
+  <!-- 保留的点（区间内，蓝色） -->
+  <g fill="#2563eb">
+    <circle cx="359" cy="150" r="6"/><circle cx="384" cy="186" r="6"/><circle cx="421" cy="158" r="6"/>
+    <circle cx="451" cy="180" r="6"/><circle cx="482" cy="152" r="6"/><circle cx="513" cy="188" r="6"/>
+    <circle cx="550" cy="162" r="6"/><circle cx="581" cy="182" r="6"/>
+  </g>
+
+  <!-- 丢弃的点（区间外，灰色 + 叉） -->
+  <g fill="#cbd5e1">
+    <circle cx="131" cy="152" r="6"/><circle cx="192" cy="184" r="6"/><circle cx="236" cy="156" r="6"/>
+    <circle cx="285" cy="186" r="6"/><circle cx="322" cy="154" r="6"/>
+    <circle cx="624" cy="180" r="6"/><circle cx="667" cy="152" r="6"/><circle cx="717" cy="184" r="6"/>
+    <circle cx="791" cy="156" r="6"/>
+  </g>
+  <g stroke="#ef4444" stroke-width="2">
+    <line x1="126" y1="147" x2="136" y2="157"/><line x1="136" y1="147" x2="126" y2="157"/>
+    <line x1="187" y1="179" x2="197" y2="189"/><line x1="197" y1="179" x2="187" y2="189"/>
+    <line x1="231" y1="151" x2="241" y2="161"/><line x1="241" y1="151" x2="231" y2="161"/>
+    <line x1="280" y1="181" x2="290" y2="191"/><line x1="290" y1="181" x2="280" y2="191"/>
+    <line x1="317" y1="149" x2="327" y2="159"/><line x1="327" y1="149" x2="317" y2="159"/>
+    <line x1="619" y1="175" x2="629" y2="185"/><line x1="629" y1="175" x2="619" y2="185"/>
+    <line x1="662" y1="147" x2="672" y2="157"/><line x1="672" y1="147" x2="662" y2="157"/>
+    <line x1="712" y1="179" x2="722" y2="189"/><line x1="722" y1="179" x2="712" y2="189"/>
+    <line x1="786" y1="151" x2="796" y2="161"/><line x1="796" y1="151" x2="786" y2="161"/>
+  </g>
+
+  <!-- 说明 -->
+  <text x="470" y="262" text-anchor="middle" font-size="14" font-weight="700" fill="#15803d">保留：-20 ≤ z ≤ +20</text>
+
+  <text x="200" y="262" text-anchor="middle" font-size="13" fill="#dc2626">丢弃</text>
+  <text x="720" y="262" text-anchor="middle" font-size="13" fill="#dc2626">丢弃</text>
+
+  <!-- 底部真实数据 -->
+  <line x1="40" y1="286" x2="880" y2="286" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="460" y="312" text-anchor="middle" font-size="14" fill="#1e293b">
+    本项目实测：<tspan font-weight="700" fill="#2563eb">30251 个点</tspan> → 切 z∈[-20,20] → <tspan font-weight="700" fill="#16a34a">8323 个点</tspan>（保留 27.5%）
+  </text>
+</svg>

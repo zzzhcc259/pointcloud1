@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="470" viewBox="0 0 920 470" font-family="Microsoft YaHei, Segoe UI, sans-serif">
+  <rect width="920" height="470" fill="#ffffff"/>
+
+  <text x="460" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#1e293b">从 .cpp 到能跑的程序：编译、链接、运行 三步</text>
+
+  <!-- 第 1 行：源文件 -->
+  <text x="20" y="90" font-size="13" fill="#64748b">源文件</text>
+
+  <rect x="80" y="70" width="200" height="46" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="180" y="99" text-anchor="middle" font-size="14" fill="#1e40af">main.cpp</text>
+
+  <rect x="360" y="70" width="200" height="46" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="460" y="99" text-anchor="middle" font-size="14" fill="#1e40af">voxel_filter.cpp</text>
+
+  <rect x="640" y="70" width="200" height="46" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="740" y="99" text-anchor="middle" font-size="14" fill="#1e40af">ransac_plane.cpp</text>
+
+  <!-- 箭头：编译 -->
+  <g stroke="#64748b" stroke-width="2" fill="#64748b">
+    <line x1="180" y1="116" x2="180" y2="170"/>
+    <polygon points="180,180 174,168 186,168"/>
+    <line x1="460" y1="116" x2="460" y2="170"/>
+    <polygon points="460,180 454,168 466,168"/>
+    <line x1="740" y1="116" x2="740" y2="170"/>
+    <polygon points="740,180 734,168 746,168"/>
+  </g>
+  <text x="460" y="150" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">① 编译（cl.exe）—— 每个 .cpp 单独编译，互不知道对方</text>
+
+  <!-- 第 2 行：目标文件 -->
+  <text x="20" y="210" font-size="13" fill="#64748b">目标文件</text>
+
+  <rect x="80" y="190" width="200" height="46" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="180" y="219" text-anchor="middle" font-size="14" fill="#334155">main.obj</text>
+
+  <rect x="360" y="190" width="200" height="46" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="460" y="219" text-anchor="middle" font-size="14" fill="#334155">voxel_filter.obj</text>
+
+  <rect x="640" y="190" width="200" height="46" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="740" y="219" text-anchor="middle" font-size="14" fill="#334155">ransac_plane.obj</text>
+
+  <!-- 箭头：链接（汇聚） -->
+  <g stroke="#64748b" stroke-width="2" fill="#64748b">
+    <path d="M 180 236 L 180 262 L 460 262 L 460 278" fill="none"/>
+    <path d="M 740 236 L 740 262 L 460 262" fill="none"/>
+    <line x1="460" y1="236" x2="460" y2="278"/>
+    <polygon points="460,288 454,276 466,276"/>
+  </g>
+  <text x="460" y="255" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">② 链接（link.exe）—— 把 .obj 和 PCL 的 .lib 拼起来</text>
+
+  <!-- 第 3 行：exe -->
+  <rect x="310" y="298" width="300" height="50" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+  <text x="460" y="329" text-anchor="middle" font-size="15" font-weight="600" fill="#15803d">PointCloudPractice.exe</text>
+
+  <!-- 箭头：运行时 -->
+  <line x1="460" y1="348" x2="460" y2="386" stroke="#64748b" stroke-width="2"/>
+  <polygon points="460,396 454,384 466,384" fill="#64748b"/>
+  <text x="475" y="374" font-size="13" font-weight="600" fill="#475569">③ 运行时</text>
+
+  <!-- 第 4 行：dll -->
+  <rect x="250" y="400" width="420" height="46" rx="6" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="460" y="429" text-anchor="middle" font-size="14" fill="#c2410c">Windows 去 exe 旁边的文件夹里找 pcl_common.dll、vtk*.dll</text>
+
+  <!-- 左侧说明 -->
+  <text x="20" y="330" font-size="13" fill="#64748b">可执行</text>
+  <text x="20" y="430" font-size="13" fill="#64748b">动态库</text>
+
+  <!-- 底部一句话 -->
+  <text x="460" y="465" text-anchor="middle" font-size="12.5" fill="#94a3b8">每一步失败，报错的字母开头不同：编译失败 → C 开头；链接失败 → LNK 开头；DLL 找不到 → 程序一闪就退</text>
+</svg>

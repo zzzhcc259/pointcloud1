@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="470" viewBox="0 0 920 470" font-family="Microsoft YaHei, PingFang SC, Segoe UI, sans-serif">
+  <rect width="920" height="470" fill="#ffffff"/>
+
+  <text x="460" y="34" text-anchor="middle" font-size="21" font-weight="700" fill="#1e293b">管道的坐标系：X 沿轴走，Y / Z 是径向</text>
+
+  <!-- ============ 左图：沿 X 轴看进去（横截面） ============ -->
+  <text x="250" y="70" text-anchor="middle" font-size="16" font-weight="600" fill="#475569">① 从 X 轴方向看进去（看到圆）</text>
+
+  <!-- 圆：管道横截面 -->
+  <circle cx="250" cy="250" r="110" fill="#dbeafe" stroke="#334155" stroke-width="2.5"/>
+
+  <!-- 圆心 -->
+  <circle cx="250" cy="250" r="3.5" fill="#334155"/>
+  <text x="232" y="266" font-size="15" fill="#475569">O</text>
+
+  <!-- Y 轴 -->
+  <line x1="250" y1="250" x2="405" y2="250" stroke="#059669" stroke-width="2.5"/>
+  <polygon points="405,250 393,244 393,256" fill="#059669"/>
+  <text x="414" y="256" font-size="18" font-weight="700" fill="#059669">Y</text>
+  <text x="330" y="272" font-size="13" fill="#059669">θ = 0 从这里开始</text>
+
+  <!-- Z 轴 -->
+  <line x1="250" y1="250" x2="250" y2="95" stroke="#7c3aed" stroke-width="2.5"/>
+  <polygon points="250,95 244,107 256,107" fill="#7c3aed"/>
+  <text x="260" y="106" font-size="18" font-weight="700" fill="#7c3aed">Z</text>
+
+  <!-- 半径 OP -->
+  <line x1="250" y1="250" x2="320.7" y2="165.7" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="268" y="200" font-size="15" font-weight="700" fill="#dc2626">R</text>
+
+  <!-- θ 弧 -->
+  <path d="M 296 250 A 46 46 0 0 0 279.6 214.8" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <text x="298" y="232" font-size="15" font-weight="700" fill="#dc2626">θ</text>
+
+  <!-- P 点 -->
+  <circle cx="320.7" cy="165.7" r="6" fill="#dc2626"/>
+  <text x="334" y="160" font-size="17" font-weight="700" fill="#dc2626">P</text>
+  <text x="350" y="182" font-size="13" fill="#64748b">管壁上的一个点</text>
+
+  <!-- ============ 右图：沿 Z 轴看下去（侧视） ============ -->
+  <text x="660" y="70" text-anchor="middle" font-size="16" font-weight="600" fill="#475569">② 从侧面看（管子沿 X 躺着）</text>
+
+  <!-- 圆柱体：上/下母线 -->
+  <line x1="580" y1="200" x2="860" y2="200" stroke="#334155" stroke-width="2.5"/>
+  <line x1="580" y1="300" x2="860" y2="300" stroke="#334155" stroke-width="2.5"/>
+  <!-- 两端椭圆 -->
+  <ellipse cx="580" cy="250" rx="20" ry="50" fill="#dbeafe" stroke="#334155" stroke-width="2.5"/>
+  <path d="M 860 200 A 20 50 0 0 1 860 300" fill="none" stroke="#334155" stroke-width="2.5"/>
+  <path d="M 860 200 A 20 50 0 0 0 860 300" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+  <!-- 轴线 -->
+  <line x1="552" y1="250" x2="888" y2="250" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="7 5"/>
+
+  <!-- 坐标轴 -->
+  <line x1="552" y1="390" x2="892" y2="390" stroke="#0ea5e9" stroke-width="2.5"/>
+  <polygon points="892,390 880,384 880,396" fill="#0ea5e9"/>
+  <text x="884" y="415" font-size="18" font-weight="700" fill="#0ea5e9">X</text>
+  <text x="770" y="415" font-size="13" fill="#0ea5e9">管道轴线（长度 80 mm）</text>
+
+  <line x1="552" y1="390" x2="552" y2="330" stroke="#059669" stroke-width="2.5"/>
+  <polygon points="552,330 546,342 558,342" fill="#059669"/>
+  <text x="524" y="350" font-size="18" font-weight="700" fill="#059669">Y</text>
+
+  <!-- Z 轴：指向纸面外 -->
+  <circle cx="552" cy="250" r="5" fill="none" stroke="#7c3aed" stroke-width="2"/>
+  <circle cx="552" cy="250" r="1.8" fill="#7c3aed"/>
+  <text x="466" y="256" font-size="18" font-weight="700" fill="#7c3aed">Z</text>
+  <text x="440" y="274" font-size="12" fill="#7c3aed">指向你</text>
+
+  <!-- 在圆柱上标 θ=0 的位置 -->
+  <circle cx="580" cy="200" r="5.5" fill="#dc2626"/>
+  <line x1="580" y1="200" x2="500" y2="182" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="392" y="180" font-size="13" font-weight="600" fill="#dc2626">θ = 0 在这个方向</text>
+
+  <!-- 半径标注 -->
+  <line x1="580" y1="250" x2="580" y2="200" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="590" y="232" font-size="14" fill="#64748b">R = 50</text>
+
+  <!-- ============ 底部公式 ============ -->
+  <line x1="40" y1="425" x2="880" y2="425" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="460" y="452" text-anchor="middle" font-size="16" fill="#1e293b">
+    <tspan font-weight="700" fill="#0ea5e9">x = d</tspan>
+    <tspan fill="#64748b">（沿管子走多远）    </tspan>
+    <tspan font-weight="700" fill="#059669">y = R · cos(θ)</tspan>
+    <tspan fill="#64748b">    </tspan>
+    <tspan font-weight="700" fill="#7c3aed">z = R · sin(θ)</tspan>
+  </text>
+</svg>

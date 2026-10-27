@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="500" viewBox="0 0 920 500" font-family="Microsoft YaHei, PingFang SC, Segoe UI, sans-serif">
+  <rect width="920" height="500" fill="#ffffff"/>
+
+  <text x="460" y="34" text-anchor="middle" font-size="21" font-weight="700" fill="#1e293b">为什么 RANSAC 会先找到管壁，而不是平板？</text>
+
+  <!-- ======== 上半：局部放大 ======== -->
+  <text x="460" y="66" text-anchor="middle" font-size="15" fill="#64748b">把管壁放大看：半径 50mm 的圆弧，在一小段上几乎是平的</text>
+
+  <!-- "平面"（红色虚线） -->
+  <line x1="160" y1="212" x2="760" y2="212" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="9 6"/>
+
+  <!-- 真实弧（蓝色） -->
+  <path d="M 160 212 Q 460 162 760 212" fill="none" stroke="#2563eb" stroke-width="3.5"/>
+
+  <!-- 拱高标注 -->
+  <line x1="460" y1="187" x2="460" y2="212" stroke="#1e293b" stroke-width="1.5"/>
+  <line x1="454" y1="187" x2="466" y2="187" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="472" y="203" font-size="14" font-weight="700" fill="#1e293b">拱高 1 mm</text>
+
+  <!-- 弧长标注 -->
+  <line x1="150" y1="222" x2="772" y2="222" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="460" y="240" text-anchor="middle" font-size="13" fill="#94a3b8">这段弧长 s ≈ 10 mm</text>
+
+  <!-- 引线标注 -->
+  <line x1="640" y1="176" x2="700" y2="140" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="706" y="140" font-size="14" font-weight="600" fill="#2563eb">真实管壁</text>
+  <text x="706" y="158" font-size="12" fill="#64748b">半径 R = 50 mm</text>
+
+  <line x1="300" y1="228" x2="240" y2="268" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="60" y="290" font-size="14" font-weight="600" fill="#dc2626">RANSAC 以为的平面</text>
+
+  <!-- 距离阈值说明 -->
+  <text x="460" y="288" text-anchor="middle" font-size="15" fill="#1e293b">
+    <tspan font-weight="700">拱高 = s² / (2R) = 10² / (2×50) = 1 mm</tspan>
+  </text>
+  <text x="460" y="312" text-anchor="middle" font-size="14" fill="#64748b">而 RANSAC 的距离阈值就是 1 mm —— 于是这 10mm 弧段里的点，全被算成"平面内点"</text>
+
+  <!-- ======== 下半：两个结果对比 ======== -->
+  <line x1="40" y1="334" x2="880" y2="334" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- 左：迭代 1000 -->
+  <rect x="70" y="352" width="360" height="122" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.8"/>
+  <text x="250" y="378" text-anchor="middle" font-size="15" font-weight="700" fill="#dc2626">迭代 1000 次 → 找到管壁</text>
+  <text x="250" y="404" text-anchor="middle" font-size="14" fill="#7f1d1d">内点 2213 个</text>
+  <text x="250" y="426" text-anchor="middle" font-size="13" fill="#7f1d1d">法向 (-0.002, 0.385, 0.923)</text>
+  <text x="250" y="448" text-anchor="middle" font-size="13" fill="#991b1b">倾斜的 → 不是水平平板</text>
+  <text x="250" y="466" text-anchor="middle" font-size="12" fill="#dc2626">✗ 找错了</text>
+
+  <!-- 右：迭代 5000 -->
+  <rect x="490" y="352" width="360" height="122" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1.8"/>
+  <text x="670" y="378" text-anchor="middle" font-size="15" font-weight="700" fill="#16a34a">迭代 5000 次 → 找到平板</text>
+  <text x="670" y="404" text-anchor="middle" font-size="14" fill="#14532d">内点 4131 个（= 平板全部点数）</text>
+  <text x="670" y="426" text-anchor="middle" font-size="13" fill="#14532d">法向 (-0.000, -1.000, 0.000)</text>
+  <text x="670" y="448" text-anchor="middle" font-size="13" fill="#166534">正好垂直 Y 轴 → 就是 y=200 那块板</text>
+  <text x="670" y="466" text-anchor="middle" font-size="12" fill="#16a34a">✓ 找对了</text>
+</svg>
