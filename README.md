@@ -293,3 +293,5 @@ cmake --build build --config Release
 练习在 `practice\exercises.cpp` 里，是另外单独编译的小程序，写崩了不影响主程序。
 
 从 [docs/00_学习路线.md](docs/00_学习路线.md) 开始。
+
+<!-- Git 练习痕迹：这一行是我自己第一次提交的改动 -->
