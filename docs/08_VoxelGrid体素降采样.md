@@ -471,7 +471,7 @@ return result;
 
 ```powershell
 # 1. 激活环境（每个新开的 PowerShell 都要做一次）
-. E:\PointCloudEnv\env.ps1
+. E:\PointCloudEnv\env.ps1   # 通常不需要：DLL 已在 exe 旁边
 
 # 2. 进项目
 cd E:\dianyunxulian

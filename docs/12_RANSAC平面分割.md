@@ -651,7 +651,7 @@ const std::string restPath = saveOutput("ransac_plane_rest", tag.str(), rest);
 ## 八、编译和运行
 
 ```powershell
-. E:\PointCloudEnv\env.ps1
+. E:\PointCloudEnv\env.ps1   # 通常不需要：DLL 已在 exe 旁边
 cd E:\dianyunxulian
 cmake --build build --config Release
 .\build\Release\PointCloudPractice.exe

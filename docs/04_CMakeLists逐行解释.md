@@ -812,10 +812,10 @@ Get-ChildItem E:\dianyunxulian\build\Release -Filter *.dll | Select-Object -Firs
 Get-ChildItem E:\dianyunxulian\build\Release -Filter *.lib
 ```
 
-**预期**：几十个 DLL（PCL + VTK + OpenNI2），**零个 `.lib`**。
+**预期**：86 个 DLL（PCL + VTK + OpenNI2），**零个 `.lib`**。
 
-**把整个 `if(WIN32)` 段删掉会怎样**：exe 照样能编出来，但运行立刻退出（`-1073741515`）。
-这时候只能靠 `. E:\PointCloudEnv\env.ps1` 设 PATH 才能跑。
+**把整个 `if(WIN32)` 段删掉会怎样**：exe 照样能编出来，但一运行就退出（`-1073741515`，
+因为 exe 旁边没有 DLL 了）。这时候要么恢复这段，要么临时 `. E:\PointCloudEnv\env.ps1` 设 `PATH` 兜底。
 
 ---
 

@@ -471,8 +471,9 @@ DLL 名要靠规则推：把 `.lib` → `.dll`，Debug 配置再补 `-gd`）。
 
 **不写会怎样**：exe 能编出来，但一运行就退出，退出码 `-1073741515`。
 
-**注意**：即使写了这个，`OpenNI2.dll` 和部分 VTK 插件仍可能漏，
-所以"跑之前先 `. E:\PointCloudEnv\env.ps1`"仍是最稳妥的做法。**这不算失败，这是 Windows 上搞 C++ 的常态。**
+**注意**：这一段做完之后，`build\Release\` 里会有 **86 个 DLL**，直接双击 exe 就能跑，
+不需要设 `PATH`（Windows 先从 exe 自己的目录找 DLL）。
+唯一会失败的情况是把 exe **单独**拷到别处运行——那时它身边没有 DLL，就会报 `0xC0000135`。
 
 ---
 
@@ -484,11 +485,13 @@ DLL 名要靠规则推：把 `.lib` → `.dll`，Debug 配置再补 `-gd`）。
 
 ```powershell
 cd E:\dianyunxulian
-. E:\PointCloudEnv\env.ps1
 cmake -S . -B build -G "Visual Studio 18 2026" -A x64
 cmake --build build --config Release
 .\build\Release\PointCloudPractice.exe
 ```
+
+> 不需要 `. E:\PointCloudEnv\env.ps1`：`cmake` 在系统 `PATH` 里，
+> DLL 由 `POST_BUILD` 拷到 exe 旁边。
 
 ### 改了 `.cpp` 之后
 
@@ -547,7 +550,7 @@ Does not match the generator used previously: Visual Studio 18 2026
 | 同上 | 同上 | `error C2664`（参数类型不匹配） | 函数签名对不上 |
 | **link** | 同上 | `error LNK2019`（无法解析的外部符号） | 有声明没实现 / `.cpp` 没加进构建 / 命名空间不一致 |
 | 同上 | 同上 | `error LNK2005`（重复定义） | 同一个函数定义了两遍 |
-| **run** | `.\build\Release\...exe` | 无报错，直接退出，`-1073741515` | 缺 DLL。先 `. env.ps1` |
+| **run** | `.\build\Release\...exe` | 无报错，直接退出，`-1073741515` | exe 旁边缺 DLL（拷走了？`POST_BUILD` 没跑？）→ 回 `build\Release\` 原地运行 |
 | 同上 | 同上 | 输出中文乱码 | 控制台没设 UTF-8（本项目 `setupConsole()` 已处理） |
 
 **记住这个顺序：configure → compile → link → run**。

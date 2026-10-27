@@ -57,22 +57,32 @@
 | PCL | 1.15.1，`E:\PointCloudEnv\PCL` |
 | C++ 标准 | C++17 |
 
-### 运行前必须先激活 PCL 环境
+### 关于 `env.ps1`：**本项目不需要它也能跑**
 
-程序的 exe 依赖 PCL 和 VTK 的一堆 `.dll`。如果不设 `PATH`，双击或直接运行会立刻退出，
-退出码 `-1073741515`（0xC0000135，意思是"缺少 DLL"）。
+程序的 exe 依赖 PCL 和 VTK 的一堆 `.dll`。很多人第一次直接把 exe 拷到别处就运行，
+会立刻退出、退出码 `-1073741515`（`0xC0000135`，"缺少 DLL"）——**但这在本项目里不会发生**。
 
-在 PowerShell 里跑之前先执行一次：
+因为 `CMakeLists.txt` 里配了 `POST_BUILD` 步骤，每次编译完会自动把 **86 个 DLL**
+（`pcl_*.dll`、73 个 `vtk*.dll`、`OpenNI2.dll`）拷到 `build\Release\` 里，
+**和 exe 放在一起**。Windows 加载 DLL 的第一站就是 exe 自己的目录，所以直接双击就能跑。
+
+实测记录（2026-10-26）：用只含 `C:\Windows\system32;C:\Windows` 的最小 `PATH`
+在 `cmd` 里运行 `PointCloudPractice.exe`，退出码 `0`，菜单正常显示。
+
+那么 `E:\PointCloudEnv\env.ps1` 什么时候还有用？
+
+| 场景 | 需要吗 |
+|---|---|
+| 运行 `build\Release\PointCloudPractice.exe` | **不需要**，DLL 就在旁边 |
+| 运行 `cmake` 命令 | **不需要**，`C:\Program Files\CMake\bin` 已在系统 `PATH` |
+| 跑 `E:\PointCloudEnv\projects\pcl_viewer` 之类的**别人**的 exe | 需要（它们没拷 DLL） |
+| `POST_BUILD` 拷 DLL 失败、程序报缺 DLL | 需要（临时兜底设 `PATH`） |
+
+如果你还是想保险起见，跑之前执行一次也行（只对当前 PowerShell 窗口有效）：
 
 ```powershell
 . E:\PointCloudEnv\env.ps1
 ```
-
-这个脚本会把 `cmake`、`PCL\bin`、`VTK\bin`、`FLANN\bin`、`Qhull\bin`、`OpenNI2` 都加进 `PATH`。
-**它只对当前这个 PowerShell 窗口有效**，新开窗口要重新执行。
-
-> 项目里已经配了 `POST_BUILD` 步骤自动把大部分 DLL 拷到 `build\Release\` 旁边，
-> 但 OpenNI2 和部分 VTK 插件仍可能有遗漏，所以"先 `env.ps1` 再运行"是最省事的做法。
 
 ---
 
@@ -122,12 +132,14 @@ E:\dianyunxulian\
 
 ## 四、三步跑起来
 
-### 1. 打开 PowerShell，进项目目录，激活环境
+### 1. 打开 PowerShell，进项目目录
 
 ```powershell
 cd E:\dianyunxulian
-. E:\PointCloudEnv\env.ps1
 ```
+
+> 这一步不需要 `. env.ps1` —— `cmake` 已经在系统 `PATH` 里，DLL 也不靠 `PATH` 找。
+> 想保险的话加一行 `. E:\PointCloudEnv\env.ps1` 也不会出错。
 
 ### 2. 配置 + 编译
 
@@ -256,7 +268,10 @@ cmake --build build --config Release
 - ✅ 算法结果**不会**写坏原始数据（实测：故意让算法写回 `scene_original.pcd`，
       被拒绝，且文件 MD5 前后一致）
 - ✅ `practice/exercises.exe` 编译成功
-- ✅ 不激活 `env.ps1` 直接运行会因缺 DLL 退出（退出码 -1073741515），激活后正常
+- ✅ **不设 `PATH` 也能直接运行**：用只含 `C:\Windows\system32;C:\Windows` 的最小
+      `PATH` 在 `cmd` 里跑，退出码 `0`、菜单正常显示（因为 `POST_BUILD` 已把 86 个 DLL
+      拷到 exe 旁边，Windows 先从 exe 目录找 DLL）
+- ✅ `cmake` 位于 `C:\Program Files\CMake\bin`，已在系统 `PATH`，配置无需额外激活脚本
 
 ### 没有验证或做不到的
 

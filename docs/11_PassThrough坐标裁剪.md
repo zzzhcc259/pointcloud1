@@ -401,7 +401,7 @@ result.summary = "坐标裁剪完成（按 " + fieldName + " 轴，保留 " +
 
 ```powershell
 # 环境（必须，否则缺 DLL）
-. E:\PointCloudEnv\env.ps1
+. E:\PointCloudEnv\env.ps1   # 通常不需要：DLL 已在 exe 旁边
 
 # 编译（改过代码才需要）
 cd E:\dianyunxulian
