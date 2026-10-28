@@ -226,28 +226,29 @@ cmake --build build --config Release
 
 ### 今天就跑起来（约 30 分钟）
 1. [docs/00_学习路线.md](docs/00_学习路线.md) —— 先看这个，它告诉你每条路怎么走
-2. 本文第四节的三条命令
+2. [docs/16_在VS里运行.md](docs/16_在VS里运行.md) —— **在 Visual Studio 里怎么点、打开哪个文件**（不想敲命令就看这篇）
+3. 本文第四节的三条命令（命令行方式）
 
 ### 想搞懂"这项目是怎么搭起来的"（建议按序，约 3~4 天）
-3. [docs/02_项目目录与多文件C++.md](docs/02_项目目录与多文件C++.md)
-4. [docs/03_CMake入门.md](docs/03_CMake入门.md)
-5. [docs/04_CMakeLists逐行解释.md](docs/04_CMakeLists逐行解释.md)
-6. [docs/05_编译链接与调试.md](docs/05_编译链接与调试.md)
-7. [docs/06_Git本地版本管理.md](docs/06_Git本地版本管理.md)
+4. [docs/02_项目目录与多文件C++.md](docs/02_项目目录与多文件C++.md)
+5. [docs/03_CMake入门.md](docs/03_CMake入门.md)
+6. [docs/04_CMakeLists逐行解释.md](docs/04_CMakeLists逐行解释.md)
+7. [docs/05_编译链接与调试.md](docs/05_编译链接与调试.md)
+8. [docs/06_Git本地版本管理.md](docs/06_Git本地版本管理.md)
 
 ### 想搞懂点云和算法（按需跳读）
-8. [docs/01_原始点云数据.md](docs/01_原始点云数据.md)
-9. [docs/07_PCL点云数据结构.md](docs/07_PCL点云数据结构.md)
-10. [docs/08_VoxelGrid体素降采样.md](docs/08_VoxelGrid体素降采样.md)
-11. [docs/09_统计滤波与半径滤波.md](docs/09_统计滤波与半径滤波.md)
-12. [docs/10_KDTree邻域搜索.md](docs/10_KDTree邻域搜索.md)
-13. [docs/11_PassThrough坐标裁剪.md](docs/11_PassThrough坐标裁剪.md)
-14. [docs/12_RANSAC平面分割.md](docs/12_RANSAC平面分割.md)
-15. [docs/13_欧氏聚类.md](docs/13_欧氏聚类.md)
+9. [docs/01_原始点云数据.md](docs/01_原始点云数据.md)
+10. [docs/07_PCL点云数据结构.md](docs/07_PCL点云数据结构.md)
+11. [docs/08_VoxelGrid体素降采样.md](docs/08_VoxelGrid体素降采样.md)
+12. [docs/09_统计滤波与半径滤波.md](docs/09_统计滤波与半径滤波.md)
+13. [docs/10_KDTree邻域搜索.md](docs/10_KDTree邻域搜索.md)
+14. [docs/11_PassThrough坐标裁剪.md](docs/11_PassThrough坐标裁剪.md)
+15. [docs/12_RANSAC平面分割.md](docs/12_RANSAC平面分割.md)
+16. [docs/13_欧氏聚类.md](docs/13_欧氏聚类.md)
 
 ### 卡住了
-16. [docs/14_项目练习与故障排查.md](docs/14_项目练习与故障排查.md)
-17. [docs/15_可视化用法.md](docs/15_可视化用法.md)
+17. [docs/14_项目练习与故障排查.md](docs/14_项目练习与故障排查.md)
+18. [docs/15_可视化用法.md](docs/15_可视化用法.md)
 
 ---
 
